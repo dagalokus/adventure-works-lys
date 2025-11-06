@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: HR
+    database: adventure_works
+    schema: human_resources
+    description: "Tables Human Resources Schema"
+    tables:
+      - name: department
+        description: "The table contains information about various departments within the organization."
+      - name: employee
+"        description: "The table contains information about employees, including their personal details and job-related information."
