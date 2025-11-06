@@ -9,4 +9,8 @@ sources:
       - name: department
         description: "The table contains information about various departments within the organization."
       - name: employee
-"        description: "The table contains information about employees, including their personal details and job-related information."
+        description: "The table contains information about employees, including their personal details and job-related information."
+      - name: employee_pay_history
+        description: "The table contains information about the changes on the pay for employees."
+      - name: employee_department_history
+        description: "The table contains information about changes in employees department."
