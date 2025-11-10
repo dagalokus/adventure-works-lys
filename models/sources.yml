@@ -27,20 +27,38 @@ sources:
         columns:
           - name: "business_entity_id"
             description: "The first part of the primary key for this table"
+            data_tests:
+              - not_null
           - name: "rate_change_date"
             description: "The second part of the primary key for this table"
+            data_tests:
+              - not_null
         data_tests:
-          - unique_combination_of_colums:
-              arguments:
-                column list: ["business_entity_id", "rate_change_date"]
+          - dbt_utils.unique_combination_of_columns:
+              combination_of_columns:
+                - business_entity_id
+                - rate_change_date
       - name: employee_department_history
         description: "The table contains information about changes in employees department."
         columns:
           - name: business_entity_id
-            description: "The primary key for this table"
+            description: "The first part of the primary key for this table"
             data_tests:
-              - unique
               - not_null
+          - name: "department_id"
+            description: "The second part of the primary key for this table"
+            data_tests:
+              - not_null
+          - name: shift_id
+            description: "the third part of the primary key for this table"
+            data_tests:
+              - not_null
+        data_tests:
+          - dbt_utils.unique_combination_of_columns:
+              combination_of_columns:
+                - business_entity_id
+                - department_id
+                - shift_id
   - name: Person
     database: adventure_works
     schema: person
