@@ -8,5 +8,67 @@ sources:
     tables:
       - name: department
         description: "The table contains information about various departments within the organization."
+        columns:
+          - name: department_id
+            description: "The primary key for this table."
+            data_tests:
+              - unique
+              - not_null
       - name: employee
-"        description: "The table contains information about employees, including their personal details and job-related information."
+        description: "The table contains information about employees, including their personal details and job-related information."
+        columns:
+          - name: business_entity_id
+            description: "The primary key for this table."
+            data_tests:
+              - unique
+              - not_null
+      - name: employee_pay_history
+        description: "The table contains information about the changes on the pay for employees."
+        columns:
+          - name: "business_entity_id"
+            description: "The first part of the primary key for this table"
+            data_tests:
+              - not_null
+          - name: "rate_change_date"
+            description: "The second part of the primary key for this table"
+            data_tests:
+              - not_null
+        data_tests:
+          - dbt_utils.unique_combination_of_columns:
+              combination_of_columns:
+                - business_entity_id
+                - rate_change_date
+      - name: employee_department_history
+        description: "The table contains information about changes in employees department."
+        columns:
+          - name: business_entity_id
+            description: "The first part of the primary key for this table"
+            data_tests:
+              - not_null
+          - name: "department_id"
+            description: "The second part of the primary key for this table"
+            data_tests:
+              - not_null
+          - name: shift_id
+            description: "the third part of the primary key for this table"
+            data_tests:
+              - not_null
+        data_tests:
+          - dbt_utils.unique_combination_of_columns:
+              combination_of_columns:
+                - business_entity_id
+                - department_id
+                - shift_id
+  - name: Person
+    database: adventure_works
+    schema: person
+    description: "Tables Person schema"
+    tables:
+      - name: person
+        description: "This table contains detail information about our employees"
+        columns:
+          - name: business_entity_id
+            description: "The primary key for this table"
+            data_tests:
+              - unique
+              - not_null
