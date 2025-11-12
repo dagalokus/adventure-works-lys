@@ -72,3 +72,7 @@ sources:
             data_tests:
               - unique
               - not_null
+      - name: person_phone
+        description: "This table contains detail information about person phone number"
+      - name: email_address
+        description: "This table contains detail information about person email address"
