@@ -1,0 +1,17 @@
+[project]
+name = "adventure_works_lys"
+version = "0.1.0"
+description = ""
+authors = [
+    { name = "Andres Uriza", email = "andres920310@gmail.com" }
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "dbt-databricks>=1.8.7",
+    "pre-commit>=4.0.1",
+    "python-dotenv>=1.0.1",
+    "shandy-sqlfmt>=0.23.2",
+    "sqlfluff>=3.2.4",
+    "sqlfluff-templater-dbt>=3.4.2",
+]

@@ -1,0 +1,17 @@
+---
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+  - repo: local
+    hooks:
+      - id: sqlfluff-lint
+        name: sqlfluff-lint
+        entry: uv run sqlfluff lint
+        args: [--config, ./.sqlfluff]
+        additional_dependencies:
+          - uv
+        language: python
