@@ -142,3 +142,19 @@ sources:
             data_tests:
               - unique
               - not_null
+      - name: product_subcategory
+        description: "This table contains details about the product subcategories"
+        columns:
+          - name: product_subcategory_id
+            description: "This is the primary key"
+            data_tests:
+              - unique
+              - not_null
+      - name: product_category
+        description: "This table contains details about the product categories"
+        columns:
+          - name: product_category_id
+            description: "This is the primary key"
+            data_tests:
+              - unique
+              - not_null
