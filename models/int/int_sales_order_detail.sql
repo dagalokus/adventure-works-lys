@@ -1,9 +1,10 @@
 with
     sales_order_detail as (
-        select so.*,sh.order_date
+        select so.*, sh.order_date
         from {{ ref("stg_sales_order_detail") }} as so
-        left join {{ ref('stg_sales_order_header') }} as sh
-        on so.sales_order_id = sh.sales_order_id
+        left join
+            {{ ref("stg_sales_order_header") }} as sh
+            on so.sales_order_id = sh.sales_order_id
     ),
 
     final as (
