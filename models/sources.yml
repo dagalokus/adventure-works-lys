@@ -72,6 +72,22 @@ sources:
             data_tests:
               - unique
               - not_null
+      - name: address
+        description: "This table contains detail information about the customer address"
+        columns:
+          - name: address_id
+            description: "This is the primary key"
+            data_tests:
+              - unique
+              - not_null
+      - name: state_province
+        description: "This table contains detail information about the customer state province"
+        columns:
+          - name: state_province_id
+            description: "This is the primary key"
+            data_tests:
+              - unique
+              - not_null
       - name: person_phone
         description: "This table contains detail information about person phone number"
       - name: email_address
@@ -97,6 +113,14 @@ sources:
               combination_of_columns:
                 - sales_order_id
                 - sales_order_detail_id
+      - name: sales_territory
+        description: "This table contains detail information about the sales in a given territory "
+        columns:
+          - name: territory_id
+            description: "This is the primary key"
+            data_tests:
+              - unique
+              - not_null
       - name: sales_order_header
         description: "This table contains detail information about our transaction sales"
         columns:
@@ -155,6 +179,19 @@ sources:
         columns:
           - name: product_category_id
             description: "This is the primary key"
+            data_tests:
+              - unique
+              - not_null
+  - name: Purchasing
+    database: adventure_works
+    schema: purchasing
+    description: "Purchasing table schema"
+    tables:
+      - name: ship_method
+        description: "This table contains details about the shiping method"
+        columns:
+          - name: ship_method_id
+            description: "This is the primary key for this table"
             data_tests:
               - unique
               - not_null
