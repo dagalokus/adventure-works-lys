@@ -30,6 +30,7 @@ with
 
     final as (
         select
+            product_id,
             product_name,
             product_number,
             color,

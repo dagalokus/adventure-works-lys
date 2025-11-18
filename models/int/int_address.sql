@@ -25,9 +25,7 @@ with
             on a.state_province_id = s.state_province_id
         left join
             {{ ref("stg_sales_territory") }} as st on s.territory_id = st.territory_id
-    ),
-
-    final as (select * from address)
+    )
 
 select *
-from final
+from address
