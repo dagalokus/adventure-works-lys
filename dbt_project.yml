@@ -33,8 +33,6 @@ clean-targets: # directories to be removed by `dbt clean`
 
 flags:
   require_generic_test_arguments_property: true
-<<<<<<< HEAD
-=======
 
 models:
   adventure_works:
@@ -50,4 +48,3 @@ models:
     marts:
       +materialized: table
       +schema: marts
->>>>>>> 55b49cf97677777c557ffb0308d01dbd68380831
