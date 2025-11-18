@@ -72,7 +72,126 @@ sources:
             data_tests:
               - unique
               - not_null
+      - name: address
+        description: "This table contains detail information about the customer address"
+        columns:
+          - name: address_id
+            description: "This is the primary key"
+            data_tests:
+              - unique
+              - not_null
+      - name: state_province
+        description: "This table contains detail information about the customer state province"
+        columns:
+          - name: state_province_id
+            description: "This is the primary key"
+            data_tests:
+              - unique
+              - not_null
       - name: person_phone
         description: "This table contains detail information about person phone number"
       - name: email_address
         description: "This table contains detail information about person email address"
+  - name: Sales
+    database: adventure_works
+    schema: sales
+    description: "Sales table schema"
+    tables:
+      - name: sales_order_detail
+        description: "This table contains detail information about our sales"
+        columns:
+          - name: sales_order_id
+            description: "The first part of the primary key"
+            data_tests:
+              - not_null
+          - name: sales_order_detail_id
+            description: "The second part of the primary key"
+            data_tests:
+              - not_null
+        data_tests:
+          - dbt_utils.unique_combination_of_columns:
+              combination_of_columns:
+                - sales_order_id
+                - sales_order_detail_id
+      - name: sales_territory
+        description: "This table contains detail information about the sales in a given territory "
+        columns:
+          - name: territory_id
+            description: "This is the primary key"
+            data_tests:
+              - unique
+              - not_null
+      - name: sales_order_header
+        description: "This table contains detail information about our transaction sales"
+        columns:
+          - name: sales_order_id
+            description: "This is the primary key"
+            data_tests:
+              - unique
+              - not_null
+      - name: sales_order_header_sales_reason
+        description: "This table contails the headers per the reason for the sale"
+        columns:
+          - name: sales_order_id
+            description: "This is the first part of the primary key"
+            data_tests:
+              - not_null
+          - name: sales_reason_id
+            description: "This is the second part of the primary key"
+            data_tests:
+              - not_null
+        data_tests:
+          - dbt_utils.unique_combination_of_columns:
+              combination_of_columns:
+                - sales_order_id
+                - sales_reason_id
+      - name: sales_reason
+        description: "This table contains the reason behind every sale"
+        columns:
+          - name: sales_reason_id
+            description: "This is the primary key"
+            data_tests:
+              - unique
+              - not_null
+  - name: Production
+    database: adventure_works
+    schema: production
+    description: "Production table schema"
+    tables:
+      - name: product
+        description: "This table contains details about the company products they sell"
+        columns:
+          - name: product_id
+            description: "This is the primary key"
+            data_tests:
+              - unique
+              - not_null
+      - name: product_subcategory
+        description: "This table contains details about the product subcategories"
+        columns:
+          - name: product_subcategory_id
+            description: "This is the primary key"
+            data_tests:
+              - unique
+              - not_null
+      - name: product_category
+        description: "This table contains details about the product categories"
+        columns:
+          - name: product_category_id
+            description: "This is the primary key"
+            data_tests:
+              - unique
+              - not_null
+  - name: Purchasing
+    database: adventure_works
+    schema: purchasing
+    description: "Purchasing table schema"
+    tables:
+      - name: ship_method
+        description: "This table contains details about the shiping method"
+        columns:
+          - name: ship_method_id
+            description: "This is the primary key for this table"
+            data_tests:
+              - unique
+              - not_null
