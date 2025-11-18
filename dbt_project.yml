@@ -35,3 +35,18 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 flags:
   require_generic_test_arguments_property: true
+
+models:
+  adventure_works:
+    # Config indicated by + and applies to all files under models/example/
+    stg:
+      +materialized: view
+      +schema: stg
+
+    int:
+      +materialized: view
+      +schema: int
+
+    marts:
+      +materialized: table
+      +schema: marts
