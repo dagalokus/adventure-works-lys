@@ -76,3 +76,64 @@ sources:
         description: "This table contains detail information about person phone number"
       - name: email_address
         description: "This table contains detail information about person email address"
+  - name: Sales
+    database: adventure_works
+    schema: sales
+    description: "Sales table schema"
+    tables:
+      - name: sales_order_detail
+        description: "This table contains detail information about our sales"
+        columns:
+          - name: sales_order_id
+            description: "The first part of the primary key"
+            data_tests:
+              - not_null
+          - name: sales_order_detail_id
+            description: "The second part of the primary key"
+            data_tests:
+              - not_null
+        data_tests:
+          - dbt_utils.unique_combination_of_columns:
+              combination_of_columns:
+                - sales_order_id
+                - sales_order_detail_id
+      - name: sales_territory
+        description: "This table contains detail information about the sales in a given territory "
+        columns:
+          - name: territory_id
+            description: "This is the primary key"
+            data_tests:
+              - unique
+              - not_null
+      - name: sales_order_header
+        description: "This table contains detail information about our transaction sales"
+        columns:
+          - name: sales_order_id
+            description: "This is the primary key"
+            data_tests:
+              - unique
+              - not_null
+      - name: sales_order_header_sales_reason
+        description: "This table contails the headers per the reason for the sale"
+        columns:
+          - name: sales_order_id
+            description: "This is the first part of the primary key"
+            data_tests:
+              - not_null
+          - name: sales_reason_id
+            description: "This is the second part of the primary key"
+            data_tests:
+              - not_null
+        data_tests:
+          - dbt_utils.unique_combination_of_columns:
+              combination_of_columns:
+                - sales_order_id
+                - sales_reason_id
+      - name: sales_reason
+        description: "This table contains the reason behind every sale"
+        columns:
+          - name: sales_reason_id
+            description: "This is the primary key"
+            data_tests:
+              - unique
+              - not_null  
