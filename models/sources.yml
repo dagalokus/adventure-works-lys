@@ -152,7 +152,6 @@ sources:
             description: "This is the primary key"
             data_tests:
               - unique
-<<<<<<< HEAD
               - not_null
   - name: Production
     database: adventure_works
@@ -196,6 +195,3 @@ sources:
             data_tests:
               - unique
               - not_null
-=======
-              - not_null  
->>>>>>> a4ff0ad41e2166f670f8e5056cd28529504530bd
