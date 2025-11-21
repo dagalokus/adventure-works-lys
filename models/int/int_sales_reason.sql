@@ -18,4 +18,3 @@ with
 
 select *
 from final
-
