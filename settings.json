@@ -1,0 +1,49 @@
+{
+  "ruff.path": ["${workspaceFolder}/.venv/bin/ruff"],
+  "ruff.configuration": "${workspaceFolder}/ruff.toml",
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+  "python.languageServer": "Pylance",
+  "python.terminal.activateEnvironment": true,
+  "python.analysis.diagnosticSeverityOverrides": {
+    "reportUndefinedVariable": "information",
+    "reportUnusedImport": "information",
+    "reportMissingImports": "none"
+  },
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    },
+    "editor.rulers": [79, 120]
+  },
+  "[yaml]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "keep",
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": true
+  },
+  "files.associations": {
+    "*.sql": "jinja-sql"
+  },
+  "[jinja-sql]": {
+    "editor.defaultFormatter": "innoverio.vscode-dbt-power-user",
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": true,
+    "editor.rulers": [88]
+  },
+  "dbt.queryLimit": 500,
+  "dbt.sqlFmtPath": "${workspaceFolder}/.venv/bin/sqlfmt",
+  "dbt.sqlFmtAdditionalParams": ["--line-length 88"],
+  "dbt.enableNewLineagePanel": true,
+  "sqlfluff.config": "${workspaceFolder}/.sqlfluff",
+  "sqlfluff.executablePath": "${workspaceFolder}/.venv/bin/sqlfluff",
+  "sqlfluff.linter.run": "onType",
+  "jupyter.interactiveWindow.cellMarker.codeRegex": "^# COMMAND ----------|^# Databricks notebook source|^(#\\s*COMMAND\\s*[-]*|#\\s*%%|#\\s*\\<codecell\\>|#\\s*In\\[\\d*?\\]|#\\s*In\\[ \\])",
+  "jupyter.interactiveWindow.cellMarker.default": "# COMMAND ----------"
+}
+
+
