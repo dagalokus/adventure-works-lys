@@ -19,5 +19,9 @@ with
             on pp.business_entity_id = ea.business_entity_id
     )
 
+<<<<<<< HEAD
 select *
 from person_info
+=======
+select * from person_info
+>>>>>>> 53c2e81c11d18ead066a7aaee5d2112b016aa6df
