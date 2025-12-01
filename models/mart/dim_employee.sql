@@ -7,6 +7,7 @@ with
         select
             business_entity_id,
             organization_level,
+            concat(first_name, ' ', last_name) as full_name,
             job_title,
             gender,
             hire_date,
@@ -20,7 +21,7 @@ with
             group_name,
             person_type
         from employee
-        left join person using (business_entity_id)
+        inner join person using (business_entity_id)
     )
 select *
 from final
